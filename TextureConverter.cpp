@@ -1,10 +1,11 @@
 #include "TextureConverter.h"
 #include <WinNls.h>
 
-int MultiByteToWideChar()
-{
-	
-}
+
+//int MultiByteToWideChar()
+//{
+//	 
+//}
 
 void TextureConverter::ConvertTextureWICToDDS(const std::string& filePath)
 {
@@ -16,6 +17,7 @@ void TextureConverter::LoadWICTextureFromFile(const std::string& filePath)
 {
 	//ファイルパスをワイド文字列に変換する
 	std::wstring wfilePath = ConvertMultiByteStringToWideString(filePath);
+
 }
 
 std::wstring TextureConverter::ConvertMultiByteStringToWideString(const std::string& mString)
@@ -28,9 +30,12 @@ std::wstring TextureConverter::ConvertMultiByteStringToWideString(const std::str
 	wString.resize(filePathBufferSize);
 
 	//ワイド文字列に変換
+	// wString = ファイルパスをワイド文字列に変換した文字列を代入
 	MultiByteToWideChar(CP_ACP, 0, mString.c_str(), -1, &wString[0], filePathBufferSize);
 
-	return std::wstring();
+	// std::wstring() 型
+
+	return wString;
 }
 
 
